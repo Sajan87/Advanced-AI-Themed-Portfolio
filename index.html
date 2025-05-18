@@ -1,0 +1,438 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advanced AI-Themed Portfolio</title>
+<!-- Google Fonts for AI/tech style -->
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<!-- FontAwesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+  /* Reset and global styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: #48dbfb;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  h1, h2, h3, h4 {
+    margin: 0 0 15px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1.4px;
+    color: #00f9ff;
+  }
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  /* Header */
+  header {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #00f9ff33;
+    position: sticky;
+    top: 0;
+    background: #112233ee;
+    z-index: 999;
+    backdrop-filter: saturate(180%) blur(10px);
+  }
+  header h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 3rem;
+    color: #00f9ff;
+    margin-bottom: 5px;
+    text-shadow: 0 0 8px #00f9ff88;
+  }
+  header p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #9ef9ffcc;
+  }
+  /* Navigation */
+  nav {
+    margin-top: 15px;
+  }
+  nav a {
+    margin: 0 15px;
+    font-weight: 600;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+  }
+  /* Sections */
+  section {
+    margin-top: 60px;
+  }
+  /* About Section */
+  #about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+  #about img {
+    border-radius: 9999px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    box-shadow: 0 0 15px #00f9ffbb;
+    transition: transform 0.4s ease;
+  }
+  #about img:hover {
+    transform: scale(1.1);
+  }
+  #about .about-text {
+    flex: 1;
+  }
+  #about h2 {
+    font-size: 2.5rem;
+  }
+  #about p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    color: #b3f0ffcc;
+  }
+  /* Skills Section */
+  #skills {
+    background: #011627cc;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 20px #00f9ff99;
+  }
+  #skills h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .skill {
+    margin-bottom: 20px;
+  }
+  .skill-name {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #00eaff;
+  }
+  .skill-bar {
+    background: #0a4056;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 18px;
+    box-shadow: inset 0 0 8px #00f9ff44;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #0066ff);
+    width: 0%;
+    border-radius: 30px;
+    transition: width 1.5s ease-in-out;
+    box-shadow: 0 0 12px #00f9ffaa;
+  }
+  /* Projects Section */
+  #projects {
+    margin-top: 40px;
+  }
+  #projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .project-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .project-card {
+    background: #021621dd;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 0 15px #00f9ffbb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00ffffcc;
+  }
+  .project-card img {
+    border-radius: 12px;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 8px #00f9ffaa;
+  }
+  .project-card h3 {
+    font-family: 'Orbitron', monospace;
+    color: #00f9ff;
+    margin-bottom: 8px;
+  }
+  .project-card p {
+    flex-grow: 1;
+    color: #a0faffcc;
+    font-size: 0.95rem;
+  }
+  .project-card a {
+    margin-top: 12px;
+    font-weight: 700;
+    color: #00ddff;
+    text-align: right;
+    font-family: 'Orbitron', monospace;
+    transition: color 0.3s ease;
+  }
+  .project-card a:hover {
+    text-decoration: underline;
+    color: #00ffff;
+  }
+  /* Contact Section */
+  #contact {
+    background: #011f3fcc;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00f9ff99;
+  }
+  #contact h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  label {
+    font-weight: 600;
+    color: #00eaff;
+    font-family: 'Orbitron', monospace;
+  }
+  input, textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+  }
+  input:focus, textarea:focus {
+    box-shadow: 0 0 12px #00f9ffaa;
+    background: #022a3d;
+    color: #b3f0ff;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  button {
+    background: linear-gradient(90deg, #00ffff, #0066ff);
+    color: #011627;
+    border: none;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+    box-shadow: 0 0 15px #00f9ffaa;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #0066ff, #00ffff);
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    color: #0099bbaa;
+    font-family: 'Audiowide', cursive;
+    margin: 80px 0 30px;
+    font-size: 0.9rem;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    #about {
+      flex-direction: column;
+      text-align: center;
+    }
+    #about .about-text {
+      flex: none;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>SAJAN KUSHWAHA</h1>
+  <p>AI & Web Developer | Innovator | Tech Enthusiast</p>
+  <nav>
+    <a href="#about" aria-label="About Me Section">About</a>
+    <a href="#skills" aria-label="Skills Section">Skills</a>
+    <a href="#projects" aria-label="Projects Section">Projects</a>
+    <a href="#contact" aria-label="Contact Section">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section id="about">
+    <img src="https://avatars.githubusercontent.com/u/9919?s=280&v=4" alt="Your Profile Picture" />
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>Hello! I'm a passionate AI and web developer with a keen interest in creating futuristic and intelligent web experiences. With experience in machine learning, neural networks, and front-end development, I strive to build applications that blend creativity and technology seamlessly.</p>
+      <p>I enjoy solving challenging problems, experimenting with new tools and frameworks, and collaborating on innovative projects. Let's build something amazing together!</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">JavaScript & ES6+</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-skill-level="90"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">HTML5 & CSS3</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-skill-level="95"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">React & Vue.js</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-skill-level="85"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Python & Machine Learning</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-skill-level="80"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">TensorFlow & AI Models</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-skill-level="75"></div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid" aria-label="Project portfolio grid">
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=400&q=80" alt="AI Chatbot App Screenshot" />
+        <h3>AI Chatbot</h3>
+        <p>An intelligent chatbot powered by natural language processing that can assist users with queries and provide client support 24/7.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View AI Chatbot project">View Project <i class="fas fa-arrow-right"></i></a>
+      </article>
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Neural Style Transfer Demo Screenshot" />
+        <h3>Neural Style Transfer</h3>
+        <p>A creative web app that applies AI-powered style transfer to images, blending artistic styles with user photos in real time.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Neural Style Transfer project">View Project <i class="fas fa-arrow-right"></i></a>
+      </article>
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=400&q=80" alt="Smart Home Dashboard Screenshot" />
+        <h3>Smart Home Dashboard</h3>
+        <p>A sleek dashboard to monitor and control IoT devices with AI-driven automation features for home energy management and security.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Smart Home Dashboard project">View Project <i class="fas fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" novalidate>
+      <label for="name">Name *</label>
+      <input id="name" name="name" type="text" placeholder="Your full name" required aria-required="true" />
+      <label for="email">Email *</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required aria-required="true"></textarea>
+      <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      <p id="formMessage" role="alert" aria-live="polite" style="margin-top:15px;"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 SAJAN KUSHWAHA &nbsp;|&nbsp; Crafted with <span style="color:#ff4b6e;">&#10084;</span> and AI vibes
+</footer>
+
+<script>
+  // Animate skill bars on scroll into view
+  function animateSkills() {
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    skillBars.forEach(bar => {
+      const level = bar.getAttribute('data-skill-level');
+      bar.style.width = level + '%';
+    });
+  }
+  
+  // Trigger skill animation when #skills section is visible
+  function onScroll() {
+    const skillsSection = document.getElementById('skills');
+    const rect = skillsSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top <= windowHeight * 0.75) {
+      animateSkills();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  
+  window.addEventListener('scroll', onScroll);
+  // Trigger in case visible without scroll
+  onScroll();
+
+  // Contact form validation and fake AJAX submission simulation
+  const contactForm = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    formMessage.style.color = '#00ffff';
+    formMessage.textContent = 'Sending message...';
+
+    // Simple validation
+    const name = contactForm.name.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if (!name || !email || !message) {
+      formMessage.style.color = '#ff4b6e';
+      formMessage.textContent = 'Please fill out all fields correctly.';
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      formMessage.style.color = '#ff4b6e';
+      formMessage.textContent = 'Please enter a valid email.';
+      return;
+    }
+
+    // Simulate sending message
+    setTimeout(() => {
+      formMessage.style.color = '#00ff99';
+      formMessage.textContent = 'Message sent successfully! Thank you.';
+      contactForm.reset();
+    }, 1500);
+  });
+
+  function validateEmail(email) {
+    // Simple regex email validation
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email.toLowerCase());
+  }
+</script>
+</body>
+</html>
+```
